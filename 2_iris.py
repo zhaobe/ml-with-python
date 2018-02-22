@@ -17,7 +17,7 @@ test_data = iris.data[test_idx]
 clf = tree.DecisionTreeClassifier()
 clf.fit(train_data, train_target)
 
-# these printouts should match
+# these two outputs should match
 print test_target
 print clf.predict(test_data)
 
@@ -34,6 +34,8 @@ tree.export_graphviz(clf,
 graph = pydotplus.graph_from_dot_data(dot_data.getvalue())
 graph.write_pdf("2_iris.pdf")
 
-# printouts for 
-print test_data[1], test_target[1]
-print iris.feature_names, iris.target_names
+# 1 - the second testing example,
+# 2 - reference of features, names
+print "test:\t", test_data[1], test_target[1]
+print "feat:\t", iris.feature_names
+print "names:\t", iris.target_names
