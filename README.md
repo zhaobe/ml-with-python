@@ -8,3 +8,4 @@ This project requires pip to be installed.
 - run `pip install -U scikit-learn` to install the scikit
 - run `pip install pydotplus graphviz` to install pydot and graphviz library 
 	- note: had to `brew install graphviz` due to error with graphviz
+- run `python -mpip install -U matplotlib` to install matplotlib
