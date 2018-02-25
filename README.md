@@ -9,3 +9,6 @@ This project requires pip to be installed.
 - run `pip install pydotplus graphviz` to install pydot and graphviz library 
 	- note: had to `brew install graphviz` due to error with graphviz
 - run `python -mpip install -U matplotlib` to install matplotlib
+
+# Reference
+- a visual way to test around data: http://playground.tensorflow.org/
