@@ -1,4 +1,8 @@
-import random
+from scipy.spatial import distance
+
+# a is a point from training data, b is a point from testing data
+def euc(a, b):
+	return distance.euclidean(a,b)
 
 class newKNN():
 	# fit method - takes in features and labels for training set
@@ -13,9 +17,25 @@ class newKNN():
 		predictions = []
 		# randomly pick a label from the training data and append to predictions
 		for row in X_test:
-			label = random.choice(self.y_train)
+			label = self.closest(row) # method closest finds nearest training point to the test point
 			predictions.append(label)
 		return predictions
+
+	# loop over all training points and keep track of closest one so far
+	# calculate distance from test point to the first training point
+	def closest(self, row):
+		best_dist = euc(row, self.X_train[0]) # keep track of the shortest distance we found so far
+		best_index = 0 # keep track of the index of the training point that is closest
+
+		# iterate over all other training points
+		for i in range(1, len(self.X_train)):
+			dist = euc(row, self.X_train[i])
+			# everytime we find a closer one, we update our variables
+			if dist < best_dist:
+				best_dist = dist
+				best_index = i
+		return self.y_train[best_index] # use index to return the label for the closest training example
+
 
 from sklearn import datasets
 iris = datasets.load_iris()

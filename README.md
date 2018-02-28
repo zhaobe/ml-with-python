@@ -12,3 +12,11 @@ This project requires pip to be installed.
 
 # Reference
 - a visual way to test around data: http://playground.tensorflow.org/
+
+# File notes
+- 5_classifier.py
+	- pros: 
+		- relatively simple using kNN algorithm
+	- cons: 
+		- computationally expensive 
+		- hard to represent relationships between features compared to 3_dog_id, which has more informative features
